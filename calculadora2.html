@@ -1,0 +1,95 @@
+<html>
+<head>
+<style>
+
+.numero{
+ width:60px;
+ height:60px;
+}
+
+.recuadro{
+ height:30px;
+ font-size:16px;
+ text-align:right;
+ padding:5px;
+}
+
+</style>
+<script >
+ var num="";
+ function cliquear (digito) {
+  var total=document.getElementById("cuadro");
+  total.value=num+digito;
+  num=total.value;
+ }
+ function suma () {
+  var total=document.getElementById("cuadro");
+  total.value=num+"+";
+  num=total.value;
+ }
+ function resta () {
+  var total=document.getElementById("cuadro");
+  total.value=num+"-";
+  num=total.value;
+ }
+ function multiplicacion () {
+  var total=document.getElementById("cuadro");
+  total.value=num+"*";
+  num=total.value;
+ }
+ function division () {
+  var total=document.getElementById("cuadro");
+  total.value=num+"/";
+  num=total.value;
+ }
+
+ function C(){
+  num=0;
+  document.getElementById("cuadro").value=num;
+ }
+ function resultado(){
+  document.getElementById("cuadro").value=eval(num);
+ }
+</script>
+
+</head>
+
+<body>
+    <div id="mostrar" style= "border: 3px solid black; width: 252px;height: 50px">
+    <input name="cuadro" type="text" value="0" class="recuadro" id="cuadro" size="25">
+
+    </div>
+    
+    <div id="calc" style="border: 2px solid black; width: 252px; height: 280px">
+
+    <br> 
+    <input type="button" class="numero" id="num7" value="7" onclick="cliquear(7)">
+    <input type="button" class="numero" id="num8" value="8" onclick="cliquear(8)">
+    <input type="button" class="numero" id="num9" value="9" onclick="cliquear(9)">
+    <input type="button" class="numero" id="button4" value="/" onclick="division()">
+    
+ 
+    <br> 
+    <input type="button" class="numero" id="num4" value="4" onclick="cliquear(4)">
+    <input type="button" class="numero" id="num5" value="5" onclick="cliquear(5)">
+    <input type="button" class="numero" id="num6" value="6" onclick="cliquear(6)">
+    <input type="button" class="numero" id="button3" value="*" onclick="multiplicacion()">
+    
+
+    <br>  
+    <input type="button" class="numero" id="num1" value="1" onclick="cliquear(1)" >
+    <input type="button" class="numero" id="num2" value="2" onclick="cliquear(2)">
+    <input type="button" class="numero" id="num3" value="3" onclick="cliquear(3)">
+    <input type="button" class="numero" id="button2" value="-" onclick="resta()">
+    <br>   
+    <input type="button" class="numero" id="button4" value="C" onclick="C()">
+    <input type="button" class="numero" id="num0" value="0" onclick="cliquear(0)">
+    <input type="button" class="numero" id="button12" value="=" onclick="resultado()">
+    <input type="button" class="numero" id="button" value="+" onclick="suma()">
+  
+
+
+ </div>
+
+</body>
+</html>

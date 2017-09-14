@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+ <head>
+
+ <script>
+
+function funcRestar(a, b) { return a-b; }
+
+function Calculator() {
+}
+
+Calculator.prototype.respuesta = 0;
+
+Calculator.prototype.sumar = function(a, b) {
+  return a + b;
+}
+
+Calculator.prototype.restar = funcRestar;
+
+Calculator.prototype.createButtons = function() {
+  var div = document.getElementById("calc");
+  var div2=document.getElementById("mostrar");
+  var x=9;
+  var lista=['/','*','-'];
+  var array=['.','0','=','+'];
+  var i=0;
+  var c;
+  for (; i<3; i++) {
+    var j=0;
+    for (; j <4; j++) {
+        var btn = document.createElement("BUTTON");
+        btn.style.height = "40px";
+        btn.style.width = "50px";
+
+      if(j==3){
+        btn.innerHTML = lista[i]; 
+        c=lista[i];
+      }
+      else{
+        c=x;
+        btn.innerHTML = x--;
+        
+        
+      }
+      
+      div.appendChild(btn);
+      btn.onclick = function(event) {
+        div2.innerText=document.getElementById("mostrar");
+      }
+
+	    };
+
+} 
+for (var j=0; j <4; j++) {
+        var btn = document.createElement("BUTTON");
+        btn.style.height = "40px";
+        btn.style.width = "50px";
+        //btn.onclick = function(event) {
+        //alert(this.innerText);
+    //}
+      btn.innerHTML = array[j];
+      var m=array[j]; 
+      btn.onclick="numero('m')"
+      div.appendChild(btn);
+};
+    function ejecutar(operacion){
+        var a=document.getElementById("caja1");
+        var b=document.getElementById("caja2");
+        var x=parseInt(a.value);
+        var y=parseInt(b.value);
+        var c=operacion(x,y);
+        var r=document.getElementById("r");
+        r.innerText = "el resultado es "+ c;  
+    }
+}
+
+function main() {
+  var calc = new Calculator();
+  calc.createButtons();
+  
+}
+ </script>
+ </head>
+ <body onload="main()">
+ <div id="mostrar" style= "border: 1px solid black; width: 200px;height: 50px">
+
+
+ </div>
+ <div id="calc" style="border: 1px solid black; width: 200px; height: 160px">
+
+ </div>
+
+
+ </body>
+</html>
