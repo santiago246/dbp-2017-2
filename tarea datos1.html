@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON</title>
+	<script>
+		var alumno ={
+			"Nombre": "Juan",
+			"edad" : 17,
+			"cursos": [
+				{
+					"codigo":"A34",
+					"Nombre":"Algoritmos"
+				},
+				{
+					"codigo":"B56",
+					"Nombre":"Base de Datos"
+				},
+				{
+					"codigo":"B57",
+					"Nombre":"Desarrollo Basado en plataformas"
+				},
+			],
+			"direccion": 
+				{
+					"tipo":"calle"
+
+				}
+
+		};
+
+		function verResultado(){
+			var out =document.getElementById("output");
+			var table =document.createElement("TABLE");
+			var trNombre = document.createElement("TR");
+			var trEdad = document.createElement("TR");
+			var trCursos = document.createElement("TR");
+
+			table.border = "1";
+
+			var td1 = document.createElement("TD");
+			var td2 = document.createElement("TD");
+			td1.innerText = "Nombre",
+			td2.innerText = alumno.Nombre;
+			trNombre.appendChild(td1);
+			trNombre.appendChild(td2);
+
+
+			td1 = document.createElement("TD");
+			td2 = document.createElement("TD");
+			td1.innerText = "Edad";
+			td2.innerText = alumno.edad;
+			trEdad.appendChild(td1);
+			trEdad.appendChild(td2);
+
+	
+
+			td1 = document.createElement("TD");
+			td2 = document.createElement("TD");
+			td1.innerText = "cursos";
+			var ulCursos = document.createElement("UL");
+
+			for(var i=0;i<alumno.cursos.length;i++){
+				var liCurso = document.createElement("LI");
+				liCurso.innerHTML = alumno.cursos[i].Nombre;
+				ulCursos.appendChild(liCurso);
+				//liCurso.id = "curso" + i;
+				var tabla = document.createElement("TABLE");
+				liCurso.onclick=function(){
+					this.style.color="red";
+					var cambio = document.getElementById("guardar");
+					 
+					var Tr1 = document.createElement("TR");
+					var Tr2 = document.createElement("TR");
+					var Tr3 = document.createElement("TR");
+
+					var tr1Input = document.createElement("INPUT");
+					var tr2Input = document.createElement("INPUT");
+					
+
+					var Td1 = document.createElement("TD");
+					var Td2 = document.createElement("TD");
+					var Td3 = document.createElement("TD");
+					var Td4 = document.createElement("TD");
+					
+					var tablaButton1 = document.createElement("BUTTON");
+					var tablaButton2 = document.createElement("BUTTON");
+					tablaButton1.innerText="Guardar";
+					tablaButton2.innerText="Cancelar";
+
+					tabla.border = "1";
+
+					Td1.innerText = "Nombre curso";
+					Td2.appendChild(tr1Input);
+					Tr1.appendChild(Td1);
+					Tr1.appendChild(Td2);
+
+					Td3.innerText = "Id curso";
+					Td4.appendChild(tr2Input);
+					Tr2.appendChild(Td3);
+					Tr2.appendChild(Td4);
+					
+					Tr3.appendChild(tablaButton1);
+					Tr3.appendChild(tablaButton2);
+
+					tabla.appendChild(Tr1);
+					tabla.appendChild(Tr2);
+					tabla.appendChild(Tr3);
+					cambio.innerHTML="";
+					cambio.appendChild(tabla);
+
+						tablaButton1.onclick=function(){	
+							liCurso.innerText=tr1Input.value;
+						}
+				}
+
+			}
+			
+				
+			td2.appendChild(ulCursos);
+			trCursos.appendChild(td1);
+			trCursos.appendChild(td2);
+
+			table.appendChild(trNombre);
+			table.appendChild(trEdad);
+			table.appendChild(trCursos);
+			out.innerHTML = "";
+			out.appendChild(table);
+		}
+
+
+	</script>
+</head>
+<body>
+	<button onclick="verResultado()">Ver Resultado</button>
+	<div id="output" style="margin: 10px; padding: 5px;"></div>
+	<div id="guardar" style="margin: 10px; padding:10px;">
+
+	</div>
+
+
+		
+
+</body>
+</html>
