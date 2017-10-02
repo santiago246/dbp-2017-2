@@ -28,12 +28,13 @@ function ganador(){
   }
 }
 function lanzar(x){
-  
   if(x==1){
     a.value=jugar(0);
+    a.innerText="jugador 1: "+a.value;
   }
   else{
     b.value=jugar(9);
+    b.innerText="jugador 2: "+b.value;
     ganador();
   }
 }
